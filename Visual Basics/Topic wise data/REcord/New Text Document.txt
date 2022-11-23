@@ -1,0 +1,39 @@
+Private Sub cmdAddNew_Click()
+Data1.Recordset.AddNew
+Text1.SetFocus
+Text2.Text = ""
+Text3.Text = ""
+Text4.Text = ""
+Text1.Text = ""
+cmdAddNew.Enabled = False
+cmdSave.Enabled = True
+End Sub
+
+Private Sub cmdDelete_Click()
+Data1.Recordset.Delete
+MsgBox "Data deleted Successfully"
+Call cmdMoveP_Click
+End Sub
+
+Private Sub cmdMoveF_Click()
+Data1.Recordset.MoveFirst
+End Sub
+
+Private Sub cmdMoveL_Click()
+Data1.Recordset.MoveLast
+End Sub
+
+Private Sub cmdMoveN_Click()
+Data1.Recordset.MoveNext
+End Sub
+
+Private Sub cmdMoveP_Click()
+Data1.Recordset.MovePrevious
+End Sub
+
+Private Sub cmdSave_Click()
+Data1.Recordset.Update
+MsgBox "Record saved successfully"
+cmdAddNew.Enabled = True
+cmdSave.Enabled = False
+End Sub

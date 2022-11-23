@@ -1,0 +1,25 @@
+Private Sub cmdMoveF_Click()
+Adodc1.Recordset.MoveFirst
+End Sub
+
+Private Sub cmdMoveL_Click()
+Adodc1.Recordset.MoveLast
+End Sub
+
+Private Sub cmdMoveN_Click()
+If Adodc1.Recordset.EOF = True Then
+    MsgBox "You are on the last record"
+    Adodc1.Recordset.MoveLast
+Else
+    Adodc1.Recordset.MoveNext
+End If
+End Sub
+
+Private Sub cmdMoveP_Click()
+If Adodc1.Recordset.BOF = True Then
+    MsgBox "You are on the first record"
+    Adodc1.Recordset.MoveFirst
+Else
+    Adodc1.Recordset.MovePrevious
+End If
+End Sub

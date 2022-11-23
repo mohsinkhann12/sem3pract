@@ -1,0 +1,39 @@
+Dim num() As Integer
+Dim i As Integer, n As Integer, m As Integer
+
+Private Sub cmdAddData_Click()
+n = InputBox("Enter size of array")
+ReDim num(n)
+For i = 1 To n
+    num(i) = InputBox("Enter data")
+Next
+End Sub
+
+Private Sub cmdAddMore_Click()
+m = InputBox("Do you want to add more values)new Size?")
+ReDim Preserve num(n + m)
+For i = n + 1 To n + m
+    num(i) = InputBox("Enter new data")
+Next i
+End Sub
+
+Private Sub cmdDisplay_Click()
+Print "Entered Data"
+For i = 1 To n
+    Print num(i);
+Next
+End Sub
+
+Private Sub cmdDisplayAll_Click()
+Print
+Print "All data";
+Print
+For i = 1 To n + m
+Print num(i);
+Next
+End Sub
+
+Private Sub cmdEnd_Click()
+End
+End Sub
+

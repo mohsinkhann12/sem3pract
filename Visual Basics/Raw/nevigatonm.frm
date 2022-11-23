@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form Form1 
-   Caption         =   "Form1"
+   Caption         =   "connect form with database using data control"
    ClientHeight    =   7335
    ClientLeft      =   120
    ClientTop       =   450
@@ -51,6 +51,7 @@ Begin VB.Form Form1
       Width           =   3015
    End
    Begin VB.Data Data1 
+      Caption         =   "Data1"
       Connect         =   "Access"
       DatabaseName    =   "C:\Program Files\Microsoft Visual Studio\VB98\BIBLIO.MDB"
       DefaultCursorType=   0  'DefaultCursor
@@ -61,13 +62,13 @@ Begin VB.Form Form1
       Options         =   0
       ReadOnly        =   0   'False
       RecordsetType   =   1  'Dynaset
-      RecordSource    =   "Authors"
+      RecordSource    =   "Publishers"
       Top             =   3840
       Visible         =   0   'False
       Width           =   6015
    End
    Begin VB.TextBox Text3 
-      DataField       =   "Year Born"
+      DataField       =   "Address"
       DataSource      =   "Data1"
       Height          =   735
       Left            =   3840
@@ -76,7 +77,7 @@ Begin VB.Form Form1
       Width           =   3255
    End
    Begin VB.TextBox Text2 
-      DataField       =   "Author"
+      DataField       =   "Company Name"
       DataSource      =   "Data1"
       Height          =   615
       Left            =   3840
@@ -85,7 +86,7 @@ Begin VB.Form Form1
       Width           =   3255
    End
    Begin VB.TextBox Text1 
-      DataField       =   "Au_ID"
+      DataField       =   "Name"
       DataSource      =   "Data1"
       Height          =   735
       Left            =   3840
@@ -94,7 +95,7 @@ Begin VB.Form Form1
       Width           =   3255
    End
    Begin VB.Label Label3 
-      Caption         =   "Label1"
+      Caption         =   "Address"
       Height          =   495
       Left            =   480
       TabIndex        =   2
@@ -102,7 +103,7 @@ Begin VB.Form Form1
       Width           =   2655
    End
    Begin VB.Label Label2 
-      Caption         =   "Label1"
+      Caption         =   "Company Name"
       Height          =   495
       Left            =   480
       TabIndex        =   1
@@ -110,7 +111,7 @@ Begin VB.Form Form1
       Width           =   2655
    End
    Begin VB.Label Label1 
-      Caption         =   "Label1"
+      Caption         =   "Name"
       Height          =   495
       Left            =   480
       TabIndex        =   0
@@ -126,15 +127,12 @@ Attribute VB_Exposed = False
 Private Sub cmdMoveFirst_Click()
 Data1.Recordset.MoveFirst
 End Sub
-
 Private Sub cmdMoveLast_Click()
 Data1.Recordset.MoveLast
 End Sub
-
 Private Sub cmdMoveNext_Click()
 Data1.Recordset.MoveNext
 End Sub
-
 Private Sub cmdMovePrevious_Click()
 If Data1.Recordset.BOF = True Then
     MsgBox "You are one the first record"
@@ -143,3 +141,4 @@ Else
     Data1.Recordset.MovePrevious
 End If
 End Sub
+
